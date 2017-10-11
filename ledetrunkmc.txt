@@ -1,0 +1,17 @@
+  x x        Target System (MediaTek Ralink MIPS)  --->                   x x
+  x x        Subtarget (MT7620 based boards)  --->                        x x
+  x x        Target Profile (Nexx WT3020 (8MB))  --->                     x x
+
+Base System > Turn off dnsmasq, firewall
+Administration > Turn on monit-nossl
+Administration > Zabbix > Turn on zabbix-agentd, zabbix-extra-network, zabbix-sender
+Kernel Modules > Sound Support > kmod-usb-audio (M)
+Kernel Modules > USB Support > kmod-usb-core (M), kmod-usb-ohci (M), kmod-usb-uhci (M), kmod-usb2 (M), kmod-usb3 (M)
+Languages > Python > Tick python, python-pip, simplejson
+Multimedia > Turn on ffmpeg
+Network > Firewall > Turn off iptables, ip6tables
+Network > SSH > openssh-sftp-server
+Network > Web Servers/Proxies > uhttpd
+Network > Untick ppp, wpad-mini
+Sound > Tick alsa-utils, pulseaudio-daemon, pulseaudio-profiles, pulseaudio-tools
+
