@@ -1,5 +1,7 @@
 # LEDE 17.01.3 Build
 
+## Audio Reciever / Sender
+
 ```
 cd lede-imagebuilder-17.01.3-ramips-mt7620.Linux-x86_64
 
@@ -11,7 +13,7 @@ On the device:
    * Add /etc/pulse to /etc/sysupgrade.conf
    * ``` sysupgrade -v [image].bin ```
 
-   * Comes up with default 192.168.1.1 ans 1.7M available on overlay
+   * Comes up with default 192.168.1.1 and 1.5M available on overlay
    * Perform the networking config (LAN is vlan 3, remove WAN, all ports on VLAN 3)
    * Set root password and device hostname
    * Add sshfs mount to /etc/rc.local
@@ -35,12 +37,14 @@ export LD_LIBRARY_PATH="/mnt/external/usr/lib"
    * Add /etc/dropbear/authorized_keys
       * Not required. Now automatic
 
-   * Symlink /mnt/external/usr/bin/python to /usr/bin/python
-
 The device is now ready to be managed by Ansible.
 
+## Storage Server
 
-## Todo
+### Introduction
 
-   * Check that it works with 48k RTP audio in study - YES
-   * Perform upgrade again with new monit image and check that it works
+This profile will be used to share USB attached media with the network.
+
+### Image Builder
+
+make image PROFILE="wt3020-8M" PACKAGES="-dnsmasq -iptables -ip6tables -ppp -ppp-mod-pppoe -firewall -wpad-mini blkid block-mount coreutils coreutils-dd e2fsprogs fdisk file fstools -hostapd -hostapd-common -iw -kmod-cfg80211 kmod-crypto-crc32c kmod-crypto-hash kmod-crypto-manager kmod-crypto-pcompress kmod-dm kmod-fs-ext4 kmod-fuse kmod-nbd kmod-scsi-core kmod-usb-storage kmod-usb-storage-extras kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb2 kmod-usb3 kmod-usbip kmod-usbip-server lsof lvm2 monit ntfs-3g openssh-sftp-server resize2fs rsync socat usbutils zabbix-agentd zabbix-extra-network zabbix-get zabbix-sender"
