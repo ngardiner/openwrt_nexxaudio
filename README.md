@@ -18,6 +18,20 @@ Although there are some options potentially available to us to backport support 
    * OpenWRT 15.05 - 15.05.1
    * LEDE 17.01.0 - 17.01.3
 
+## Issues
+| Release         | Kernel  | Pulse Version  | Behaviour             |
+| --------------- | ------- | -------------- | --------------------- |
+| OpenWRT 15.05.1 | 3.18.23 | pulseaudio 6.0 | 48K RTP does not work |
+| LEDE 17.01.3    | 4.4.89  | pulseaudio 9.0 | Random Drops          |
+
+### LEDE 17.01.3 Random Drops
+
+W: [alsa-sink-USB Audio] alsa-util.c: Could not recover from POLLERR|POLLNVAL|POLLHUP and XRUN: Broken pipe
+
+Bus 001 Device 003: ID 0c76:161f JMTek, LLC.
+
+Unfortunately, when this behaviour occurs it does not cause the pulseaudio daemon to stop running or signal any issue, which will leave the system without audio until the daemon is manually restarted.
+
 ## Packages
    * Add
       * alsa-lib
