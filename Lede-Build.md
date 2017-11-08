@@ -48,3 +48,9 @@ This profile will be used to share USB attached media with the network.
 ### Image Builder
 
 make image PROFILE="wt3020-8M" PACKAGES="-dnsmasq -iptables -ip6tables -ppp -ppp-mod-pppoe -firewall -wpad-mini blkid block-mount coreutils coreutils-dd e2fsprogs fdisk file fstools -hostapd -hostapd-common -iw -kmod-cfg80211 kmod-crypto-crc32c kmod-crypto-hash kmod-crypto-manager kmod-crypto-pcompress kmod-dm kmod-fs-ext4 kmod-fuse kmod-nbd kmod-scsi-core kmod-usb-storage kmod-usb-storage-extras kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb2 kmod-usb3 kmod-usbip kmod-usbip-server lsof lvm2 monit ntfs-3g openssh-sftp-server resize2fs rsync socat usbutils zabbix-agentd zabbix-extra-network zabbix-get zabbix-sender"
+
+## RTL-SDR 433MHz Reciever
+
+### Image Builder
+
+make image PROFILE="wt3020-8M" PACKAGES="-dnsmasq -iptables -ip6tables -ppp -ppp-mod-pppoe -firewall -wpad-mini hostapd hostapd-common iw kmod-cfg80211 kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb2 kmod-usb3 kmod-usbip kmod-usbip-server monit openssh-sftp-server rsync rtl_sdr socat usbutils zabbix-agentd zabbix-extra-network zabbix-get zabbix-sender"
